@@ -1,0 +1,20 @@
+{
+  "name": "life",
+  "scripts": {
+    "dev": "nodemon server/index.js",
+    "build": "nuxt build",
+    "start": "NODE_ENV=production node server.js"
+  },
+  "dependencies": {
+    "@nuxtjs/axios": "^5.12.2",
+    "mongoose": "^5.10.2",
+    "nuxt": "^2.14.4",
+    "socket.io": "^2.3.0"
+  },
+  "devDependencies": {
+    "@nuxtjs/vuetify": "^1.11.2",
+    "nodemon": "^2.0.4",
+    "pug": "^3.0.0",
+    "pug-plain-loader": "^1.0.0"
+  }
+}
