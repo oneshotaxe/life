@@ -1,17 +1,23 @@
-const port = process.env.PORT || 3000
-const isProd = process.env.NODE_ENV === 'production'
+const createApp = require('./app')
 
-const { app, server } = require('./app')
-
-const { Nuxt, Builder } = require('nuxt')
-const config = require('../nuxt.config.js')
-config.dev = !isProd
-
-const nuxt = new Nuxt(config)
-if (config.dev) {
-  const builder = new Builder(nuxt)
-  builder.build()
+async function start () {
+  const port = process.env.PORT || 3000
+  const isProd = process.env.NODE_ENV === 'production'
+  
+  const { app, server } = await createApp()
+  
+  const { Nuxt, Builder } = require('nuxt')
+  const config = require('../nuxt.config.js')
+  config.dev = !isProd
+  
+  const nuxt = new Nuxt(config)
+  if (config.dev) {
+    const builder = new Builder(nuxt)
+    builder.build()
+  }
+  app.use(nuxt.render)
+  
+  server.listen(port, 'localhost')
 }
-app.use(nuxt.render)
 
-server.listen(port, 'localhost')
+start()

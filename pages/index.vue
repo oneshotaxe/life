@@ -1,16 +1,19 @@
 <template lang="pug">
-  v-btn Test
+  v-app
+    base-app-bar
+    base-drawer
+    base-view
 </template>
 
 <script>
-import Io from "socket.io-client";
-
+import BaseAppBar from '@/components/BaseAppBar.vue'
+import BaseDrawer from '@/components/BaseDrawer.vue'
+import BaseView from '@/components/BaseView.vue'
 export default {
-  mounted() {
-    const socket = Io("http://localhost:3000")
-    socket.on('handshake', () => {
-      console.log('Ok!')
-    })
-  },
-};
+  components: {
+    BaseAppBar,
+    BaseDrawer,
+    BaseView
+  }
+}
 </script>

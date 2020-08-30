@@ -1,0 +1,11 @@
+[
+  {
+    "type": "town_hall",
+    "name": "Town hall",
+    "cost": {
+      "wood": 100,
+      "stone": 100,
+      "iron": 50
+    }
+  }
+]
